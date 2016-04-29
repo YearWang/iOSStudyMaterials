@@ -28,7 +28,7 @@
 
 这是一个重点考察项，曾经在微博上发过一个风格纠错题：
 
-
+![风格就错题]（https://raw.githubusercontent.com/YearWang/iOSStudyMaterials/master/img/3.jpg）
 
 也曾在面试时让人当场改过，槽点不少，能够有 10 处以上修改的就基本达到标准了（处女座的人在这方面表现都很优秀
 
