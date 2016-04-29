@@ -39,7 +39,8 @@ OC对象类型（NSArray、NSDate、NSNumber、模型类）;
 
 3. 修改了副本并不会影响源对象，修改了源对象，并不会影响副本。
 
-4. copy在属性声明中的使用，直接举例说明：
+4. copy在属性声明中的使用
+直接举例说明：
 
     @interface ViewController ()//注意这里虽然是copy的属性，但是我们这个指针还是强引用的
 
@@ -83,7 +84,7 @@ OC对象类型（NSArray、NSDate、NSNumber、模型类）;
 
 6. 类的copy：
 
-如果我们想实现类的copy，必须实现一个方法：-(id)copyWithZome:(NSZone*)zone; 这是为什么呢？我们去 NSString 中去寻找答案，那么我们会发现其实 NSString 已经遵守了 NSCopying 与 NSMutableCopying 的协议，我们主要看 NSCopying ，进入这个协议之后你会发现 -(id)copyWithZome:(NSZone*)zone 这个方法，也就是说NSString 已经遵守了协议的这个方法，所以才能直接实现 copy 的方法。所以如果想实现自定义类的 copy 方法，我们是需要先遵守 NSCopying 协议，然后实现-(id)copyWithZome:(NSZone*)zone的方法:
+ 如果我们想实现类的copy，必须实现一个方法：-(id)copyWithZome:(NSZone*)zone; 这是为什么呢？我们去 NSString 中去寻找答案，那么我们会发现其实 NSString 已经遵守了 NSCopying 与 NSMutableCopying 的协议，我们主要看 NSCopying ，进入这个协议之后你会发现 -(id)copyWithZome:(NSZone*)zone 这个方法，也就是说NSString 已经遵守了协议的这个方法，所以才能直接实现 copy 的方法。所以如果想实现自定义类的 copy 方法，我们是需要先遵守 NSCopying 协议，然后实现-(id)copyWithZome:(NSZone*)zone的方法:
 
     -(id)copyWithZone:(NSZone *)zone
     {
