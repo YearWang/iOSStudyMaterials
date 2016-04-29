@@ -85,12 +85,14 @@ OC对象类型（NSArray、NSDate、NSNumber、模型类）;
 
  如果我们想实现类的copy，必须实现一个方法：-(id)copyWithZome:(NSZone*)zone; 这是为什么呢？我们去 NSString 中去寻找答案，那么我们会发现其实 NSString 已经遵守了 NSCopying 与 NSMutableCopying 的协议，我们主要看 NSCopying ，进入这个协议之后你会发现 -(id)copyWithZome:(NSZone*)zone 这个方法，也就是说NSString 已经遵守了协议的这个方法，所以才能直接实现 copy 的方法。所以如果想实现自定义类的 copy 方法，我们是需要先遵守 NSCopying 协议，然后实现-(id)copyWithZome:(NSZone*)zone的方法:
 
-    -(id)copyWithZone:(NSZone *)zone
-    {
-    Mitchell*copyMit = [[Mitchell allocWithZone:zone] init];
+        -(id)copyWithZone:(NSZone *)zone
+        {
 
-    copyMit.name = self.name;return copyMit;
-    }
+        Mitchell*copyMit = [[Mitchell allocWithZone:zone] init];
+
+        copyMit.name = self.name;return copyMit;
+
+        }
 
     zone：系统返回给我们 copy 对象的内存空间
 
